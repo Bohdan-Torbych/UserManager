@@ -1,0 +1,83 @@
+<div class="register-card">
+  <form
+    class="register-form"
+    #registerForm="ngForm"
+    (ngSubmit)="addNewUser()"
+    autocomplete="off"
+  >
+    <h2>Add new user</h2>
+    <mat-form-field>
+      <mat-label>Full Name</mat-label>
+      <input
+        type="text"
+        name="fullName"
+        matInput
+        placeholder="Ex. Jogn Doe"
+        [(ngModel)]="user.fullName"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        name="email"
+        placeholder="Ex. johnDoe@example.com"
+        name="email"
+        [(ngModel)]="user.email"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <mat-error
+        *ngIf="
+          emailFormControl.hasError('email') &&
+          !emailFormControl.hasError('required')
+        "
+      >
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <mat-select
+        [(ngModel)]="user.gender"
+        [ngModelOptions]="{ standalone: true }"
+        name="gender"
+      >
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Date of birth</mat-label>
+      <input
+        type="date"
+        name="dob"
+        matInput
+        placeholder="dd.mm.yyyy"
+        [(ngModel)]="user.dob"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        name="password"
+        matInput
+        placeholder="Ex. Johndoe1"
+        [(ngModel)]="user.password"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" type="submit">Add</button>
+  </form>
+</div>

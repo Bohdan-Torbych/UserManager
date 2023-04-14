@@ -1,0 +1,19 @@
+<header>
+  <nav>
+    <div class="nav-links">
+      <a routerLink="/">Home</a>
+      <a routerLink="/logins-info">Loggins</a>
+    </div>
+
+    <div class="login-card" *ngIf="accountService.currentUser$ | async as user">
+      <div class="profile-name" >{{user.fullName}}</div>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="logout()"
+      >
+        Logout
+      </button>
+    </div>
+  </nav>
+</header>

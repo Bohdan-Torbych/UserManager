@@ -1,0 +1,35 @@
+header {
+  background-color: rgb(61, 59, 59);
+  /* padding: 5px; */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  min-height: 50px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 5px 10px;
+}
+
+.nav-links a:hover {
+  background-color: rgb(90, 88, 88);
+  transition: 0.2s;
+}
+
+.login-card {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-name {
+  font-size: 15px;
+}

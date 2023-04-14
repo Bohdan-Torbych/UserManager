@@ -1,0 +1,28 @@
+:host {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  padding: 5px;
+  gap: 15px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(61, 59, 59);
+}
+
+.login-form h2 {
+  color: white;
+  margin: 0;
+  text-align: center;
+}

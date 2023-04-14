@@ -1,0 +1,33 @@
+<div class="logins">
+    <h2>Logins Information</h2>
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let login">{{ login.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="dateStamp">
+            <th mat-header-cell *matHeaderCellDef>
+                Date Stamp
+            </th>
+            <td mat-cell *matCellDef="let login">{{ login.dateStamp | date : "yyyy/mm/dd HH:MM" }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>
+                Status
+            </th>
+            <td mat-cell *matCellDef="let login">{{ login.status }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    </table>
+    <mat-paginator
+    [pageSizeOptions]="[5,10]"
+    [pageSize]="5"
+    showFirstLastButtons
+    aria-label="Select page of periodic users">
+    </mat-paginator>
+</div>
