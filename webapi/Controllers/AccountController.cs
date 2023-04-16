@@ -2,6 +2,7 @@
 using UserManager.Core.Dtos.Requests;
 using UserManager.Core.Dtos.Responses;
 using UserManager.Core.ServiceContracts;
+using webapi.Filters;
 
 namespace UserManager.Controllers;
 
@@ -17,10 +18,12 @@ public class AccountController : ControllerBase
     }
 
     [HttpPost("register")]
+    [ModelValidationActionFilter]
     public async Task<ActionResult<UserResponse>> AddNewUser(UserAddRequest addRequest) =>
         await _accountsService.Register(addRequest);
 
     [HttpPost("login")]
+    [ModelValidationActionFilter]
     public async Task<ActionResult<UserResponse>> LoginUser(LoginRequest loginRequest) =>
         await _accountsService.Login(loginRequest);
 }

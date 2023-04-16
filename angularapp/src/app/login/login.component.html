@@ -1,13 +1,22 @@
- <div class="login-card">
-  <form class="login-form" action="#" (ngSubmit)="login()">
+<div class="login-card">
+  <form class="login-form" action="#" (ngSubmit)="login()" autocomplete="off">
     <h2>Login</h2>
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input type="email" matInput placeholder="Ex. pat@example.com"
+      <input
+        type="email"
+        matInput
+        placeholder="Ex. pat@example.com"
         name="email"
         [(ngModel)]="loginInfo.email"
-        [ngModelOptions]="{standalone: true}">
-      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <mat-error
+        *ngIf="
+          emailFormControl.hasError('email') &&
+          !emailFormControl.hasError('required')
+        "
+      >
         Please enter a valid email address
       </mat-error>
       <mat-error *ngIf="emailFormControl.hasError('required')">
@@ -17,9 +26,18 @@
 
     <mat-form-field>
       <mat-label>Password</mat-label>
-      <input type="password" name="password" matInput placeholder="Ex. Johndoe1" [(ngModel)]="loginInfo.password"
-        [ngModelOptions]="{standalone: true}">
+      <input
+        type="password"
+        name="password"
+        matInput
+        placeholder="Ex. Johndoe1"
+        [(ngModel)]="loginInfo.password"
+        [ngModelOptions]="{ standalone: true }"
+      />
     </mat-form-field>
     <button mat-raised-button color="accent" type="submit">Login</button>
+    <button mat-raised-button color="accent" (click)="addUser()">
+      Add new user
+    </button>
   </form>
 </div>

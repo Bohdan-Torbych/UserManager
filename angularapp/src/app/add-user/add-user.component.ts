@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormControl, NgForm, Validators } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
 import { RegisterUser } from '../_models/register-data';
 import { map } from 'rxjs';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-user',
@@ -17,7 +18,11 @@ export class AddUserComponent {
   ]);
   user: RegisterUser;
 
-  constructor(private accountService: AccountService, private router: Router) {
+  constructor(
+    private accountService: AccountService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {
     this.user = {
       fullName: '',
       email: '',
@@ -30,12 +35,22 @@ export class AddUserComponent {
   addNewUser() {
     console.log(this.user);
     let result = this.accountService.register(this.user);
-    result.subscribe(
-      result => this.router.navigateByUrl("/"),
-      error => {
-        console.log(error)
-        // Cleaning form and notification
-      }
-    );
+    result.subscribe({
+      next: () => {
+        this.router.navigateByUrl('/');
+        // this.toastr.success('Successfuly user added');
+      },
+      error: () => {
+        // this.toastr.error('Error user added');
+        // TODO add toastr notification
+        // this.user = {
+        //   fullName: '',
+        //   email: '',
+        //   gender: '',
+        //   dob: new Date(),
+        //   password: '',
+        // };
+      },
+    });
   }
 }

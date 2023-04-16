@@ -1,37 +1,55 @@
 <div class="users-container">
   <div class="add-user">
-    <button mat-raised-button color="accent" (click)="addUser()">Add new user</button>
+    <button mat-raised-button color="accent" (click)="addUser()">
+      Add new user
+    </button>
   </div>
   <div class="user-table mat-elevation-z8">
     <div class="users-table-header">
       <h2>Users List:</h2>
-      
-      <!-- <div class="filter-form">
+
+      <form class="filter-form">
         <mat-form-field appearance="fill">
           <mat-label>Filter by</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let option of displayedColumns" [value]="option" [(ngModel)]="filterBy">
-              {{option}}
+          <mat-select
+            [(ngModel)]="filterBy"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <mat-option
+              *ngFor="let option of filterOptions"
+              [value]="option.value"
+            >
+              {{ option.view }}
             </mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Filter string</mat-label>
-          <input type="text" matInput [(ngModel)]="searchString" (change)="test">
+          <input
+            type="text"
+            matInput
+            [(ngModel)]="filterString"
+            [ngModelOptions]="{ standalone: true }"
+            (keyup)="applyFilter()"
+          />
         </mat-form-field>
 
-        <button mat-raised-button color="accent" (onSubmit)="addUser()">Clear</button>
-      </div> -->
-
-      
+        <button mat-raised-button color="accent" (click)="clearFilter()">
+          Clear
+        </button>
+      </form>
     </div>
-    <table mat-table [dataSource]="dataSource" matSort>
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      matSortActive="fullName"
+      matSortDirection="asc"
+    >
       <!-- Name Column -->
       <ng-container matColumnDef="fullName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          Full Name
-        </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Full Name</th>
         <td mat-cell *matCellDef="let user">{{ user.fullName }}</td>
       </ng-container>
 

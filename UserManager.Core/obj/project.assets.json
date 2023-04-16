@@ -1205,7 +1205,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vova_Hula\\.nuget\\packages\\": {}
+    "C:\\Users\\volod\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
@@ -1213,11 +1214,15 @@
       "projectUniqueName": "C:\\Development\\UserManager\\UserManager.Core\\UserManager.Core.csproj",
       "projectName": "UserManager.Core",
       "projectPath": "C:\\Development\\UserManager\\UserManager.Core\\UserManager.Core.csproj",
-      "packagesPath": "C:\\Users\\Vova_Hula\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\volod\\.nuget\\packages\\",
       "outputPath": "C:\\Development\\UserManager\\UserManager.Core\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Vova_Hula\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\volod\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

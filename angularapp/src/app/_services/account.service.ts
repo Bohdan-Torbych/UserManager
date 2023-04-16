@@ -7,13 +7,13 @@ import { LoginData } from '../_models/login-data';
 import { RegisterUser } from '../_models/register-data';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AccountService {
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   login(model: LoginData) {
     return this.http.post<User>('/account/login', model).pipe(
@@ -28,17 +28,14 @@ export class AccountService {
   }
 
   register(model: RegisterUser) {
-    return this.http
-      .post<User>('/account/register', model)
-      .pipe(
-        map((user: User) => {
-          if (user) {
-            localStorage.setItem('user', JSON.stringify(user));
-            this.currentUserSource.next(user);
-          }
-          return user;
-        })
-      );
+    return this.http.post<User>('/account/register', model).pipe(
+      map((user: User) => {
+        if (user) {
+          this.currentUserSource.next(user);
+        }
+        return user;
+      })
+    );
   }
 
   setCurrentUser(user: User) {

@@ -10,26 +10,36 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  loginInfo : LoginData;
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+  loginInfo: LoginData;
 
-  constructor(private router: Router, private accountService: AccountService){
+  constructor(private router: Router, private accountService: AccountService) {
     this.loginInfo = {
-      email : "",
-      password : ""
-    }
+      email: '',
+      password: '',
+    };
   }
 
-  login(){
+  login() {
     console.log(this.loginInfo);
     let result = this.accountService.login(this.loginInfo);
-    result.subscribe(
-      res => {
-        console.log("res");
-        console.log(res)},
-      error => console.log(error)
-    );
-    // TODO: cleaning form after submit
-    // this.router.navigateByUrl("/")
+    result.subscribe({
+      next: () => {
+        this.router.navigateByUrl('/');
+      },
+      error: () => {
+        this.loginInfo = {
+          email: '',
+          password: '',
+        };
+      },
+    });
+  }
+
+  addUser() {
+    this.router.navigateByUrl('/add-user');
   }
 }

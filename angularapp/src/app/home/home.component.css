@@ -1,26 +1,30 @@
-h2{
-    margin: 0;
+h2 {
+  margin: 0;
 }
 
-.users-container{
-    margin: 20px 50px;
+.users-container {
+  margin: 20px 50px;
 }
 
-.add-user{
-    margin-bottom: 10px;
+.add-user {
+  margin-bottom: 10px;
 }
 
-.filter-form{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
+.filter-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
 }
 
-mat-form-field{
-    margin-bottom: -1.20em
+mat-form-field {
+  margin-bottom: -1.2em;
 }
 
-.user-table{
-    border-radius: 3px;
+.user-table {
+  border-radius: 3px;
+}
+
+.users-table-header {
+  margin: 10px;
 }

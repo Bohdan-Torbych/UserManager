@@ -14,7 +14,6 @@ export class LoginsService {
   }
 
   getLogins() {
-    if (this.logins.length > 0) return of(this.logins);
     return this.http.get<LoginInfo[]>('/logins').pipe(
       map((response) => {
         this.logins = response;

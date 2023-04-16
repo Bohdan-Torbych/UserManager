@@ -5,7 +5,6 @@ using UserManager.Core.RepositotyContracts;
 using UserManager.Core.ServiceContracts;
 using UserManager.Core.Services;
 using UserManager.Infrastructure.Repositories;
-using webapi.Options;
 
 namespace UserManager.StartupExtension;
 

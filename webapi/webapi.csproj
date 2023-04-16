@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Options\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
 
 </Project>
